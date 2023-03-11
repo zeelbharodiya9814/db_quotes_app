@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
       'icon': Icons.widgets_outlined,
       'color': Colors.purple[600],
       'name': "Categ",
+      'page' : "",
     },
     {
       'icon': Icons.photo_outlined,
@@ -229,7 +230,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).pushNamed('random');
+                        e[0] = Navigator.pushNamed(context, 'Life_screen');
                       },
                       child: Icon(e["icon"],size: 30,),
                       style: ElevatedButton.styleFrom(

@@ -23,7 +23,7 @@ class _Positive_screenState extends State<Positive_screen> {
     Future.delayed(
         const Duration(seconds: 10),
             () => setState(() {
-          getAllQuotes = DBHelper.dbHelper.fetchAllQuotes2();
+          getAllQuotes = DBHelper.dbHelper.fetchAllQuotes4();
         }));
   }
 
@@ -32,15 +32,15 @@ class _Positive_screenState extends State<Positive_screen> {
     bool? ispositionalArrived = prefs.getBool('positionalArrived') ?? false;
 
     (ispositionalArrived == false)
-        ? DBHelper.dbHelper.JsonData1()
-        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes2();
+        ? DBHelper.dbHelper.JsonData4()
+        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes4();
   }
 
   @override
   void initState() {
     super.initState();
     forGetVariable();
-    getAllQuotes = DBHelper.dbHelper.fetchAllQuotes1();
+    getAllQuotes = DBHelper.dbHelper.fetchAllQuotes4();
 
     fetch();
   }
@@ -153,7 +153,11 @@ class _Positive_screenState extends State<Positive_screen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      setState(() {
+
+                                      });
+                                    },
                                     icon: const Icon(
                                       Icons.image_outlined,
                                       size: 30,

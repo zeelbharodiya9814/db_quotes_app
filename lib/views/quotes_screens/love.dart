@@ -22,7 +22,7 @@ class _Love_ScreenState extends State<Love_Screen> {
     Future.delayed(
         const Duration(seconds: 5),
             () => setState(() {
-          getAllQuotes = DBHelper.dbHelper.fetchAllQuotes3();
+          getAllQuotes = DBHelper.dbHelper.fetchAllQuotes1();
         }));
   }
 
@@ -32,7 +32,7 @@ class _Love_ScreenState extends State<Love_Screen> {
 
     (isLoveArrived == false)
         ? DBHelper.dbHelper.JsonData1()
-        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes3();
+        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes1();
   }
 
   @override
@@ -152,7 +152,11 @@ class _Love_ScreenState extends State<Love_Screen> {
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      setState(() {
+
+                                      });
+                                    },
                                     icon: const Icon(
                                       Icons.image_outlined,
                                       size: 30,

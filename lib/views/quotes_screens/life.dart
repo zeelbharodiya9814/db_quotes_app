@@ -24,7 +24,7 @@ class _Life_ScreenState extends State<Life_Screen> {
     Future.delayed(
         const Duration(seconds: 5),
             () => setState(() {
-          getAllQuotes = DBHelper.dbHelper.fetchAllQuotes4();
+          getAllQuotes = DBHelper.dbHelper.fetchAllQuotes2();
         }));
   }
 
@@ -33,15 +33,15 @@ class _Life_ScreenState extends State<Life_Screen> {
     bool? islifeArrived = prefs.getBool('LifeArrived') ?? false;
 
     (islifeArrived == false)
-        ? DBHelper.dbHelper.JsonData1()
-        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes4();
+        ? DBHelper.dbHelper.JsonData2()
+        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes2();
   }
 
   @override
   void initState() {
     super.initState();
     forGetVariable();
-    getAllQuotes = DBHelper.dbHelper.fetchAllQuotes1();
+    getAllQuotes = DBHelper.dbHelper.fetchAllQuotes2();
 
     fetch();
   }
@@ -152,10 +152,14 @@ class _Life_ScreenState extends State<Life_Screen> {
                                     bottomRight: Radius.circular(18)),
                               ),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      setState(() {
+
+                                      });
+                                    },
                                     icon: const Icon(
                                       Icons.image_outlined,
                                       size: 30,

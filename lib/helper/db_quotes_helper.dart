@@ -49,7 +49,8 @@ class DBHelper {
   }
 
 
-  Future<int> insert1({required String quote,required String name}) async {
+
+  Future<int?> insert1({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes1(quote, name) VALUES(?, ?);";
@@ -62,7 +63,7 @@ class DBHelper {
     return res;
   }
 
-  Future<int> insert2({required String quote,required String name}) async {
+  Future<int?> insert2({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes2(quote, name) VALUES(?, ?);";
@@ -76,7 +77,7 @@ class DBHelper {
   }
 
 
-  Future<int> insert3({required String quote,required String name}) async {
+  Future<int?> insert3({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes3(quote, name) VALUES(?, ?);";
@@ -90,7 +91,7 @@ class DBHelper {
   }
 
 
-  Future<int> insert4({required String quote,required String name}) async {
+  Future<int?> insert4({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes4(quote, name) VALUES(?, ?);";
@@ -104,7 +105,7 @@ class DBHelper {
   }
 
 
-  Future<int> insert5({required String quote,required String name}) async {
+  Future<int?> insert5({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes5(quote, name) VALUES(?, ?);";
@@ -118,7 +119,7 @@ class DBHelper {
   }
 
 
-  Future<int> insert6({required String quote,required String name}) async {
+  Future<int?> insert6({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes6(quote, name) VALUES(?, ?);";
@@ -132,7 +133,7 @@ class DBHelper {
   }
 
 
-  Future<int> insert7({required String quote,required String name}) async {
+  Future<int?> insert7({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes7(quote, name) VALUES(?, ?);";
@@ -146,7 +147,7 @@ class DBHelper {
   }
 
 
-  Future<int> insert8({required String quote,required String name}) async {
+  Future<int?> insert8({required String quote,required String name}) async {
     await initDB();
 
     String query = "INSERT INTO quotes8(quote, name) VALUES(?, ?);";
@@ -172,7 +173,7 @@ class DBHelper {
 
     List<QUOTES> allQuotes = allRecords.map((e) => QUOTES.fromMap(e)).toList();
 
-    print("Table fetched Successfully $allQuotes");
+    // print("Table fetched Successfully $allQuotes");
 
     return allQuotes;
   }
@@ -188,10 +189,12 @@ class DBHelper {
 
     List<QUOTES> allQuotes = allRecords.map((e) => QUOTES.fromMap(e)).toList();
 
-    print("Table fetched Successfully $allQuotes");
+    // print("Table fetched Successfully $allQuotes");
 
     return allQuotes;
   }
+
+
 
 
   Future<List<QUOTES>> fetchAllQuotes3() async {
@@ -430,12 +433,51 @@ class DBHelper {
 
     List res = jsonDecode(jsonData);
 
-    List quotesdataall = res.map((e) => QuotesData.fromPatience(data1: e)).toList();
+    List allQuotes = res.map((e) => QuotesData.fromPatience(data1: e)).toList();
 
-        quotesdataall.map((e) =>
+    allQuotes.map((e) =>
         DBHelper.dbHelper.insert1(quote: e.data,name: e.name))
         .toList();
   }
+
+
+  JsonData2() async {
+    String jsonData = await rootBundle.loadString("assets/json/data2.json");
+
+    List res = jsonDecode(jsonData);
+
+    List allQuotes = res.map((e) => QuotesData.fromPatience(data1: e)).toList();
+
+    allQuotes.map((e) =>
+        DBHelper.dbHelper.insert2(quote: e.data,name: e.name))
+        .toList();
+  }
+
+
+  JsonData3() async {
+    String jsonData = await rootBundle.loadString("assets/json/data3.json");
+
+    List res = jsonDecode(jsonData);
+
+    List allQuotes = res.map((e) => QuotesData.fromPatience(data1: e)).toList();
+
+    allQuotes.map((e) =>
+        DBHelper.dbHelper.insert3(quote: e.data,name: e.name))
+        .toList();
+  }
+
+  JsonData4() async {
+    String jsonData = await rootBundle.loadString("assets/json/data4.json");
+
+    List res = jsonDecode(jsonData);
+
+    List allQuotes = res.map((e) => QuotesData.fromPatience(data1: e)).toList();
+
+    allQuotes.map((e) =>
+        DBHelper.dbHelper.insert4(quote: e.data,name: e.name))
+        .toList();
+  }
+
 
 
 

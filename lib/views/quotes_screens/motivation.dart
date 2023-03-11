@@ -20,7 +20,7 @@ class _Motivation_ScreenState extends State<Motivation_Screen> {
     Future.delayed(
         const Duration(seconds: 5),
         () => setState(() {
-              getAllQuotes = DBHelper.dbHelper.fetchAllQuotes1();
+              getAllQuotes = DBHelper.dbHelper.fetchAllQuotes3();
             }));
   }
 
@@ -29,15 +29,15 @@ class _Motivation_ScreenState extends State<Motivation_Screen> {
     bool? isMotivationalArrived = prefs.getBool('motivationalArrived') ?? false;
 
     (isMotivationalArrived == false)
-        ? DBHelper.dbHelper.JsonData1()
-        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes1();
+        ? DBHelper.dbHelper.JsonData3()
+        : getAllQuotes = DBHelper.dbHelper.fetchAllQuotes3();
   }
 
   @override
   void initState() {
     super.initState();
     forGetVariable();
-    getAllQuotes = DBHelper.dbHelper.fetchAllQuotes1();
+    getAllQuotes = DBHelper.dbHelper.fetchAllQuotes3();
 
     fetch();
   }
@@ -153,7 +153,11 @@ class _Motivation_ScreenState extends State<Motivation_Screen> {
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: [
                                       IconButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          setState(() {
+                                            
+                                          });
+                                        },
                                         icon: const Icon(
                                           Icons.image_outlined,
                                           size: 30,
@@ -198,15 +202,6 @@ class _Motivation_ScreenState extends State<Motivation_Screen> {
               child: CircularProgressIndicator(),
             );
           }),
-      floatingActionButton:   FloatingActionButton(
-        child: Icon(Icons.refresh),
-        onPressed: () {
-          setState(() {
-
-          });
-        },
-
-      ),
     );
   }
   isDataArrived() async {
